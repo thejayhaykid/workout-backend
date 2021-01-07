@@ -1,0 +1,10 @@
+{
+  "name": "workout-backend",
+  "version": "1.0.0",
+  "description": "Backend for my workout app",
+  "main": "src/index.js",
+  "repository": "workout-backend.jakehayes.net",
+  "author": "Jake Hayes",
+  "license": "MIT",
+  "private": false
+}

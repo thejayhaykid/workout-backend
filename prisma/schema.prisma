@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+
+model Workout {
+  id         Int          @id @default(autoincrement())
+  title      String
+  category   String
+  focus      Focus[]
+  dateAdded  DateTime     @default(now())
+  excercises Excercises[]
+}
+
+model Excercises {
+  id        Int      @id @default(autoincrement())
+  title     String
+  category  String
+  focus     Focus[]
+  dateAdded DateTime @default(now())
+  Workout   Workout? @relation(fields: [workoutId], references: [id])
+  workoutId Int?
+}
+
+enum Focus {
+  CARDIO
+  BICEPS
+  TRICEPS
+  SHOULDERS
+  ARMS
+  CHEST
+  CORE
+  ABS
+  TORSO
+  NECK
+  LEGS
+  QUADS
+  GLUTES
+  CALVES
+  HAMSTRINGS
+  HANDS
+  FEET
+  FULLBODY
+}

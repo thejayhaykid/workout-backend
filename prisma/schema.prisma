@@ -17,15 +17,15 @@ model User {
 }
 
 model Workout {
-  id         Int          @id @default(autoincrement())
+  id         Int         @id @default(autoincrement())
   title      String
   category   String
   focus      Focus[]
-  dateAdded  DateTime     @default(now())
-  excercises Excercises[]
+  dateAdded  DateTime    @default(now())
+  excercises Exercises[]
 }
 
-model Excercises {
+model Exercises {
   id        Int      @id @default(autoincrement())
   title     String
   category  String

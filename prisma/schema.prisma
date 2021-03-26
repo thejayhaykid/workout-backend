@@ -2,8 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:db.db"
 }
 
 generator client {
@@ -11,47 +11,27 @@ generator client {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id       Int     @id @default(autoincrement())
+  username String  @unique
+  name     String?
+  password String
+  email    String
 }
 
 model Workout {
-  id         Int         @id @default(autoincrement())
-  title      String
-  category   String
-  focus      Focus[]
-  dateAdded  DateTime    @default(now())
-  excercises Exercises[]
+  id        Int         @id @default(autoincrement())
+  title     String
+  category  String
+  focus     String
+  dateAdded DateTime    @default(now())
+  exercises Exercises[]
 }
 
 model Exercises {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   title     String
   category  String
-  focus     Focus[]
-  dateAdded DateTime @default(now())
-  Workout   Workout? @relation(fields: [workoutId], references: [id])
-  workoutId Int?
-}
-
-enum Focus {
-  CARDIO
-  BICEPS
-  TRICEPS
-  SHOULDERS
-  ARMS
-  CHEST
-  CORE
-  ABS
-  TORSO
-  NECK
-  LEGS
-  QUADS
-  GLUTES
-  CALVES
-  HAMSTRINGS
-  HANDS
-  FEET
-  FULLBODY
+  focus     String
+  dateAdded DateTime  @default(now())
+  Workouts  Workout[]
 }

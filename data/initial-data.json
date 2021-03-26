@@ -1,0 +1,13 @@
+{
+  "data": {
+    "users": [
+      {
+        "id": 1,
+        "username": "jake",
+        "name": "Jake"
+      }
+    ],
+    "workouts": [],
+    "exercises": []
+  }
+}

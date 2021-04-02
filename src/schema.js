@@ -11,6 +11,7 @@ module.exports = gql`
     type Workout {
         id: ID!
         title: String 
+        description: String
         category: String 
         focus: String 
         dateAdded: String
@@ -19,11 +20,13 @@ module.exports = gql`
     input WorkoutInput {
         title: String 
         category: String 
+        description: String
         focus: String
     }
     type Exercise {
         id: ID!
         title: String
+        description: String
         category: String
         focus: String
         dateAdded: String
@@ -31,6 +34,7 @@ module.exports = gql`
     }
     input ExerciseInput {
         title: String
+        description: String
         category: String
         focus: String
     }
@@ -38,6 +42,7 @@ module.exports = gql`
         workouts(
             id: ID
             title: String 
+            description: String
             category: String 
             focus: String 
             dateAdded: String
@@ -45,6 +50,7 @@ module.exports = gql`
         exercises(
             id: ID
             title: String
+            description: String
             category: String
             focus: String
             dateAdded: String

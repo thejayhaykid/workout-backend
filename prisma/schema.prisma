@@ -19,19 +19,21 @@ model User {
 }
 
 model Workout {
-  id        Int         @id @default(autoincrement())
-  title     String
-  category  String
-  focus     String
-  dateAdded DateTime    @default(now())
-  exercises Exercises[]
+  id          Int         @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  focus       String
+  dateAdded   DateTime    @default(now())
+  exercises   Exercises[]
 }
 
 model Exercises {
-  id        Int       @id @default(autoincrement())
-  title     String
-  category  String
-  focus     String
-  dateAdded DateTime  @default(now())
-  Workouts  Workout[]
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  category    String
+  focus       String
+  dateAdded   DateTime  @default(now())
+  Workouts    Workout[]
 }
